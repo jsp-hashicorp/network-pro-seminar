@@ -22,3 +22,7 @@ variable "consul_dc" {
   description = "Define the Consul Data Center Value here"
   type = string
 }
+
+vraible "num_nginx" {
+  
+}
