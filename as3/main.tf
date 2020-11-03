@@ -21,7 +21,7 @@ resource "null_resource" "download_as3" {
 # install rpm to BIG-IP
 resource "null_resource" "install_as3" {
   provisioner "local-exec" {
-    command = "./install_as3.sh ${var.address}:${var.port} admin:${var.password} ${var.as3_rpm}"
+    command = "./install_as3.sh ${data.terraform_remote_state.infra-config.outputs.F5_IP}:${var.port} admin:${data.terraform_remote_state.infra-config.outputs.F5_Password} ${var.as3_rpm}"
   }
   depends_on = [null_resource.download_as3]
 }
