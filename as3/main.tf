@@ -11,8 +11,8 @@ data "terraform_remote_state" "infra-config" {
 
 
 provider "bigip" {
-  address  = "https://${var.address}:${var.port}"
-  username = data.terraform_remote_state.infra-config.outputs.F5_IP
+  address  = "https://${data.terraform_remote_state.infra-config.outputs.F5_IP}:${var.port}"
+  username = var.username
   password = data.terraform_remote_state.infra-config.outputs.F5_Password
 }
 # pin to 1.1.2
