@@ -1,7 +1,19 @@
+data "terraform_remote_state" "infra-config" {
+  backend = "remote"
+
+  config = {
+    organization = "network-pro-webinar"
+    workspaces = {
+      name = "infra-config"
+    }
+  }
+}
+
+
 provider "bigip" {
   address  = "https://${var.address}:${var.port}"
-  username = var.username
-  password = var.password
+  username = data.terraform_remote_state.infra-config.outputs.F5_IP
+  password = data.terraform_remote_state.infra-config.outputs.F5_Password
 }
 # pin to 1.1.2
 #terraform {
