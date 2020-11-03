@@ -1,11 +1,9 @@
-variable "address" {}
 variable "port" {
   default = "8443"
   }
 variable "username" {
   default = "admin"
   }
-variable "password" {}
 variable "as3_rpm" {
   default = "f5-appsvcs-3.17.1-1.noarch.rpm"
 }
