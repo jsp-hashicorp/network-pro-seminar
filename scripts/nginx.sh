@@ -6,6 +6,9 @@ local_ipv4="$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)"
 #Utils
 sudo apt-get install unzip
 
+#Install Dockers
+sudo snap install docker
+
 #Download Consul
 CONSUL_VERSION="1.7.2"
 curl --silent --remote-name https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
@@ -85,7 +88,7 @@ sudo service consul start
 sudo service consul status
 
 #Install Dockers
-sudo snap install docker
+#sudo snap install docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
