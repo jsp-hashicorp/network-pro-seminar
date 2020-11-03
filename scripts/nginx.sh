@@ -89,4 +89,4 @@ sudo service consul status
 #Install Dockers
 sudo curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
-sudo docker run -P -d nginxdemos/hello
+sudo docker run -P -p 80:80 -d nginxdemos/hello
