@@ -23,7 +23,7 @@ variable "consul_dc" {
   type = string
 }
 
-varaible "num_nginx" {
+variable "num_nginx" {
   descriptim = "Define the Number of desired_capacity for Nginx"
   type = string
 }
