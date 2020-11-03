@@ -33,24 +33,7 @@ resource "aws_instance" "f5" {
 
 }
 
-/*
-resource "aws_s3_bucket" "s3_bucket" {
-  bucket_prefix = "${var.prefix}-s3bucket"
-}
-# encrypt password sha512
-resource "null_resource" "admin-shadow" {
-  provisioner "local-exec" {
-    command = "./admin-shadow.sh ${random_string.password.result}"
-  }
-}
 
-resource "aws_s3_bucket_object" "password" {
-  bucket = "${aws_s3_bucket.s3_bucket.id}"
-  key = "admin.shadow"
-  source = "admin.shadow"
-  depends_on = ["null_resource.admin-shadow"]
-}
-*/
 data "template_file" "f5_init" {
   template = "${file("../scripts/f5.tpl")}"
 
@@ -60,7 +43,7 @@ data "template_file" "f5_init" {
   }
 }
 
-
+/*
 # Add Configuration to Consul as access
 resource "consul_key_prefix" "f5" {
   # Prefix to add to prepend to all of the subkey names below.
@@ -74,3 +57,4 @@ resource "consul_key_prefix" "f5" {
     "user_interface"  = "https://${aws_eip.f5.public_ip}:8443"
   }
 }
+*/
